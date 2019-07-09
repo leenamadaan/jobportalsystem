@@ -1,1 +1,2 @@
-# jobportalsystem
+# Job Portal System
+Job Portal System was developed to enhance the recruitment which fully work online, so that various candidates can be recruited in the organization. Thus, this web application will be great relief to the jobseeker, as they can registered themselves and apply for the job. This site also make it possible for the recruiters and companies to post their staffing recruitment and view profile of the interested candidates.
