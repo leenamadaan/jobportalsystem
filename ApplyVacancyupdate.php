@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+    <?php
+    error_reporting(0);
+    ob_start();
+    session_start();
+    //Connection */
+	if (!empty($txtema)) {
+
+    if (isset($_POST['btnupdate'])) {
+
+        extract($_POST);
+
+        if (empty($error)) {
+
+            $query = "update vacancy1 set a10='" . $txtn . "',a11='" . $txtdate . "', a12='" . $txtexer . "', a13='" . $txtqu . "',a14='" . $txtphonee . "' where a15 = '$txtema' ";
+            $result = mysql_query($query);
+            $num = (int) $result;
+            if ($num > 0) {
+                $error = "Your profile has been successfully updated.";
+            } else {
+                $error = "Your profile has not been updated.";
+            }
+        }
+    }
+
+}?>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Job Portal</title>
+        <script type="text/JavaScript" src="js/scw.js"></script>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript">
+            function contact(i)
+            {
+                if(i.value.length>0)
+                {
+                    i.value = i.value.replace(/[^\d]+/g, '');
+
+                }
+            }
+            function mob()
+            {
+                var rl=document.getElementById("number").value;
+                if(rl.toString().length<10)
+                {
+                    alert("Contact No. should be of ten digits");
+                    return false;
+                }
+
+            }
+            function valid() {
+                //alert('calling');
+                var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                // var address = document.forms[form_id].elements[txtemail_id].value;
+                var address = document.getElementById('txt_eml').value;
+                if(reg.test(address) == false) {
+                    alert('Invalid Email Address');
+                    return false;
+                }
+            }
+
+        </script>
+
+
+    </head>
+    <body>
+        <table  cellspacing="0" cellpadding="0" align="center" border="0" class="body_content">
+            <tr>
+                <td colspan="3"  height="80" class="red-font-bold" align="center">
+                    <?php
+                    include("user.php");
+                    ?>
+                </td>
+            </tr>
+            <tr>
+
+                <td width="900"  height="500" valign="top">
+                    <span style="padding-left: 20px;text-align: justify;" class="text-11" >
+                        <div class="body-cont-col" style="height: 450px;overflow: auto;">
+                            <div style="height: 20px;"></div>
+                            <div class="head1" align="center"><strong></strong></div>
+                            <div style="height: 500px;width: 920px;overflow: auto;">
+                                <form id="frm" action="vacancy12.php" method="post">
+                                    <table width="900"  align="center" border="0" >
+                                        <tr>
+                                            <td class="text1" colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" valign="middle" align="center">
+                                                <?php
+                                                if ($_SESSION['MSG'] != '') {
+                                                    echo '<div class="msgbox">' . $_SESSION['MSG'] . '</div>';
+                                                    $_SESSION['MSG'] = "";
+                                                }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                                $user_id1 = "";
+                                                $user_id1 = $_GET['id'];
+                                        ?>
+                                        <?php
+                                                include_once "connection/dbconfig.php";
+                                                $query = "select * from vacancy where a1 = '$user_id1'";
+                                                $result = mysql_query($query);
+                                                while ($row = mysql_fetch_array($result)) {
+                                        ?>
+                                                    <tr>
+                                                        <td class="text">Job ID:</td>
+                                                        <td class="text"><input type="text"  id="txtid" name="txtid" style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a1']; ?>"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text">Job For:</td>
+
+                                                        <td class="text"><input type="text"  id="txtapp" name="txtapp" style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a2']; ?>"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text">Name:</td>
+                                                        <td class="text"><input type="text"  id="txt_name" name="txt_name" style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a3']; ?>"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text">Date Of Post:</td>
+                                                        <td class="text"><input type="text"  id="txt_dob" name="txt_dob"style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a4']; ?>"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text">Exprience:</td>
+
+                                                        <td><input type="text"  id="txt_gndr" name="txt_gndr" style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a5']; ?>"></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text"> Qualification:</td>
+                                                        <td><input type="text"  id="txtaqu" name="txtaqu" style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a6']; ?>"></td>
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text">Contact Us:</td>
+                                                        <td><input type="text"  id="txt_phone" name="txt_phone" style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a7']; ?>"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text">Email:</td>
+                                                        <td class="text"><input type="text"  id="txt_eml" name="txt_eml" style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a8']; ?>"></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="text">Job Location:</td>
+                                                        <td class="text"><input type="text"  id="txtstate" name="txtstate" style="width: 250px; height: 25px;" readonly value="<?php echo $row ['a9']; ?>"></td>
+
+
+                                                    </tr>
+      <?php
+                                    }
+                            ?>
+
+                                                                   <tr>
+                                                <td class="text">Name:</td>
+                                                <td class="text"><input type="text"  id="txtn" name="txtn" style="width: 250px; height: 25px;"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text">Date Of Birth:</td>
+                                                <td class="text"><input type="text"  id="txtdate" name="txtdate"style="width: 250px; height: 25px;" readonly onclick="scwShow(this,event)"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text">Exprience:</td>
+                                                <td class="text">
+                                                    <select   id="txtexer" name="txtexer" style="width: 250px; height: 25px;">
+                                                        <option value="select"> - - - -Select - - - - </option>
+                                                        <option value="Fresher">Fresher</option>
+                                                        <option value="Below 1 Year">Below 1 Year</option>
+
+                                                        <option value="Below 2 Year">Below 2 Year</option>
+                                                        <option value="Below 3 Year">Below 3 Year</option>
+                                                        <option value="Below 4 Year">Below 4 Year</option>
+                                                        <option value="Below 5 Year">Below 5 Year</option>
+                                                        <option value="Above 5 Year">Above 5 Year</option>
+
+
+
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                             <tr>
+                                                <td class="text"> Qualification:</td>
+                                                <td class="text"><textarea row="5" cols="25" name="txtqu" id="txtqu"></textarea></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text">Contact Us:</td>
+                                                <td><input type="text"  id="txtphonee" name="txtphonee" style="width: 250px; height: 25px;" onkeyup="contact(this,value)" onblur="mob()"></td>
+                                            </tr>
+                                         <tr>
+                                                <td class="text">Email:</td>
+                                                <td class="text"><input type="text"  id="txtema" name="txtema" style="width: 250px; height: 25px;" onblur="valid()"></td>
+                                            </tr>
+
+
+                                                    <tr>
+                                                        <td align="center" colspan="2">
+                                                           <button type="submit" name="btnupdate" id="btnupdate" onClick="return validate()">Update</button> </td>
+                                                    </tr>
+                                                </table>
+                                            </form>
+                                        </div>
+                                    </div>  </td>
+                            </span>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="3" width="100%" class="footer" align="center">
+<?php
+                                                    include("footer.php");
+?>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+

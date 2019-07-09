@@ -1,0 +1,112 @@
+
+root {
+    display: block;
+}
+
+body{
+    background-image: url(../image/background_var1.jpg);
+    margin: 0;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.body_content{
+    margin-top: 20px;
+    background-color: #ffffff;
+    width: 950px;
+}
+.footer{
+    background-image: url(../image/header_bg.png);
+    background-repeat: repeat-x;
+    margin: 0;
+    width: 950px;
+    height: 40px;
+}
+.red-font-bold {
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: bold;
+    color: #A51A1A;
+    text-decoration: none;
+}
+.white_font_bold{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #f6f6f6;
+    text-decoration: none;
+    text-align: center;
+}
+.bold_matter{
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color:#636363;
+    letter-spacing:0px;
+    
+}
+.text-1 {
+    font-size:12px;
+    color:#22749f;
+    text-decoration:none;
+    width:auto;
+}
+.login {
+    background-image: url(../image/user_login.jpg);
+    background-repeat:  no-repeat;
+    width: 225px;
+    height: 225px;
+}
+legend{
+    font-size: 12px;
+    text-decoration: none;
+    color: #A51A1A;
+    font-weight: bold;
+    vertical-align: middle;
+}
+fieldset{
+    margin-top: 2em;
+}
+.text_bor{
+    border: 3px solid #666666;
+    font-size:12px;
+    margin:0px;
+    font-weight: bold;
+}
+.heading_lable{
+    font-size: 13px;
+    font-weight: bold;
+    color: #f6f6f6;
+    background-color: maroon;
+    text-align: center;
+}
+
+.clear{
+    clear: both;
+    color: #ffffff;
+    font-size: 13px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.headtitle{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    color: #711515;
+    font-size: 14px;
+}
+
+.text{
+    font-weight: bold;
+    color: #711515;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.line {
+    position:relative;
+    background:url(../image/rightside.gif) repeat-y right top;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
